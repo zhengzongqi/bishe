@@ -49,8 +49,12 @@
             android:name=".activity.HomeActivity"
             android:label="首页" />
         <activity
-            android:name=".activity.NoteDetailActivity"
+            android:name=".activity.note.NoteDetailActivity"
             android:label="帖子详情页" />
+        <activity
+            android:name=".activity.note.SearchBanActivity"
+            android:label="搜索兴趣圈页" />
+
 
         <meta-data
             android:name="com.google.android.actions"

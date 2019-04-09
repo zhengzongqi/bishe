@@ -1,4 +1,4 @@
-package com.example.administrator.shudong.activity;
+package com.example.administrator.shudong.activity.note;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.administrator.shudong.activity.BaseActivity;
 import com.example.administrator.shudong.bean.Zan_Note;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.example.administrator.shudong.R;
@@ -49,7 +50,8 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
     private TextView replaycount;
 
     private EditText editText;
-    private Button button;
+    private Button button_reply;
+    private Button button_like;
     private ListView lvnotedetail;
 
     private Note note;
@@ -58,6 +60,7 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
 
     //默认没有点赞
     private Boolean iszan=false;
+    private Boolean islike=false;
     //回复数量
     private int count=0;
 
@@ -87,6 +90,10 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
         zancount=(TextView)findViewById(R.id.note_detail_zancount);
         replaycount=(TextView)findViewById(R.id.note_detail_replaycount);
 
+        editText=(EditText)findViewById(R.id.et_note_detail);
+        button_reply=(Button)findViewById(R.id.bt_send_note_detail);
+        button_like=(Button)findViewById(R.id.bt_like_note_detail);
+
         //设置帖子数据
         type.setText(note.getTypeId());
         time.setText(note.getUpdatedAt().substring(0,10));
@@ -98,6 +105,9 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
         initZanState();
 
         zan.setOnClickListener(this);
+        button_like.setOnClickListener(this);
+        button_reply.setOnClickListener(this);
+
 
         lvnotedetail=(ListView)findViewById(R.id.lv_note_detail);
         commentAdapter=new CommentAdapter(this,mlist);
@@ -297,7 +307,59 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                     cancelZan();
                 }
                 break;
+            case R.id.bt_send_note_detail:
 
+                String s=editText.getText().toString().trim();
+                if(!TextUtils.isEmpty(s)){
+                    final Comment comment=new Comment();
+                    comment.setNoteId(note.getObjectId());
+                    User user = BmobUser.getCurrentUser(User.class);
+                    comment.setContent(s);
+                    comment.setUserId(user.getObjectId());
+                    comment.save(new SaveListener<String>() {
+                        @Override
+                        public void done(String s, BmobException e) {
+                            if(e==null){
+                                Toast.makeText(NoteDetailActivity.this,"评论成功",Toast.LENGTH_SHORT).show();
+                                mlist.add(comment);
+                                commentAdapter.notifyDataSetChanged();
+
+                                editText.setText("");
+                                //评论数的处理，显示+1，数据库加1
+                                replaycount.setText((++count)+"" );
+
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        note.setNum_Reply(count);
+                                        note.update(note.getObjectId(), new UpdateListener() {
+                                            @Override
+                                            public void done(BmobException e) {
+                                                if(e==null){
+                                                }else {
+                                                }
+                                            }
+                                        });
+                                    }
+                                }).start();
+                            }else{
+                                Toast.makeText(NoteDetailActivity.this,"评论失败，请检查网络",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }else{
+                    Toast.makeText(this, "亲，输入框不能为空", Toast.LENGTH_SHORT).show();
+                }
+                initCommentdata();
+                break;
         }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initdata();
+        initCommentdata();
     }
 }

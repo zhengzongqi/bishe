@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.administrator.shudong.R;
-import com.example.administrator.shudong.activity.NoteDetailActivity;
+import com.example.administrator.shudong.activity.note.NoteDetailActivity;
 import com.example.administrator.shudong.view.fragment.BaseFragment;
 import com.example.administrator.shudong.bean.Note;
 import com.example.administrator.shudong.adapter.NoteAdapter;

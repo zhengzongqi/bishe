@@ -10,6 +10,11 @@ public class Type extends BmobObject {
     private String Typename;
     private int Number_Today;
     private int Number_All;
+    private int Num_People;
+
+    public int getNum_People() {
+        return Num_People;
+    }
 
     public String getTypename() {
         return Typename;
@@ -33,5 +38,9 @@ public class Type extends BmobObject {
 
     public void setTypename(String typename) {
         Typename = typename;
+    }
+
+    public void setNum_People(int num_People) {
+        Num_People = num_People;
     }
 }
