@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_comment_portait"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/man"
+            app:riv_oval="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_comment_name"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:gravity="center_vertical|left"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_black"
+                android:text="随机名"/>
+
+            <TextView
+                android:id="@+id/item_comment_time"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:gravity="center_vertical|left"
+                android:textSize="15sp"
+                android:text="回复时间"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/item_comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingTop="10dp"
+        android:text="android开发zzq"
+        android:textColor="@color/color_black"
+        android:textSize="17sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_note_type"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/item_note_zan"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/zan" />
+
+        <TextView
+            android:paddingLeft="15dp"
+            android:id="@+id/item_comment_zancount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
