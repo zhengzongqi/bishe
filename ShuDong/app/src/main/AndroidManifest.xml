@@ -54,6 +54,9 @@
         <activity
             android:name=".activity.note.SearchBanActivity"
             android:label="搜索兴趣圈页" />
+        <activity
+            android:name=".activity.note.BanNoteActivity"
+            android:label="兴趣圈帖子页" />
 
 
         <meta-data

@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import com.example.administrator.shudong.R;
+import com.example.administrator.shudong.activity.note.BanNoteActivity;
 import com.example.administrator.shudong.activity.note.SearchBanActivity;
 import com.example.administrator.shudong.activity.user.LoginActivity;
 

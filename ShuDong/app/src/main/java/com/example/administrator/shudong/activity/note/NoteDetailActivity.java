@@ -21,6 +21,7 @@ import com.example.administrator.shudong.bean.Note;
 import com.example.administrator.shudong.bean.Comment;
 import com.example.administrator.shudong.bean.User;
 import com.example.administrator.shudong.adapter.CommentAdapter;
+import com.example.administrator.shudong.bean.Zan_Note;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.DeleteBatchListener;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
@@ -54,6 +56,7 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
     private Button button_like;
     private ListView lvnotedetail;
 
+    private User user = BmobUser.getCurrentUser(User.class);
     private Note note;
     private List<Comment> mlist=new ArrayList<>();
     private CommentAdapter commentAdapter;
@@ -116,6 +119,23 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
 
     //设置赞初始状态
     private void initZanState() {
+        User user = BmobUser.getCurrentUser(User.class);
+        BmobQuery<Zan_Note> query = new BmobQuery<Zan_Note>();
+        query.addWhereEqualTo("UserId", user.getObjectId());
+        query.addWhereEqualTo("NoteId", note.getObjectId());
+        query.findObjects(new FindListener<Zan_Note>() {
+            @Override
+            public void done(List<Zan_Note> list, BmobException e) {
+                if(e==null){
+                    //以前点过赞
+                    if(list.size()!=0){
+                        zan.setImageResource(R.drawable.zan_pressed);
+                        iszan=true;
+                        tag=true;
+                    }
+                }
+            }
+        });
     }
 
     //初始化评论数据
@@ -150,8 +170,8 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
             zancount.setText(""+(Integer.valueOf(zancount.getText().toString().trim())+1));
 
             BmobQuery<Zan_Note> query = new BmobQuery<Zan_Note>();
-            query.addWhereEqualTo("userid",user.getObjectId());
-            query.addWhereNotEqualTo("noteid", note.getObjectId());
+            query.addWhereEqualTo("UserId",user.getObjectId());
+            query.addWhereNotEqualTo("NoteId", note.getObjectId());
             query.setLimit(1);
 
             query.findObjects(new FindListener<Zan_Note>() {
@@ -249,13 +269,11 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
         zan.setImageResource(R.drawable.zan);
         zancount.setText(""+(Integer.valueOf(zancount.getText().toString().trim())-1));
         iszan=false;
-        User user = BmobUser.getCurrentUser(User.class);
 
         BmobQuery<Zan_Note> query = new BmobQuery<Zan_Note>();
-        query.addWhereEqualTo("userid",user.getObjectId());
-        query.addWhereNotEqualTo("noteid", note.getObjectId());
+        query.addWhereEqualTo("UserId",user.getObjectId());
+        query.addWhereEqualTo("NoteId", note.getObjectId());
         query.setLimit(1);
-
         query.findObjects(new FindListener<Zan_Note>() {
             @Override
             public void done(List<Zan_Note> list, BmobException e) {
@@ -276,8 +294,17 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                                     }
                                 });
 
+
                             }else{
 
+                            }
+                        }
+                    });
+                    z.delete(z.getObjectId(),new UpdateListener(){
+                        @Override
+                        public void done(BmobException e) {
+                            if(e==null){
+                                Toast.makeText(NoteDetailActivity.this,"取消成功",Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

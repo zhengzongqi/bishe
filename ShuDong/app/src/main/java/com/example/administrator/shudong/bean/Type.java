@@ -7,7 +7,7 @@ import cn.bmob.v3.BmobObject;
  * function:  版块BEAN
  */
 public class Type extends BmobObject {
-    private String Typename;
+    private String TypeName;
     private int Number_Today;
     private int Number_All;
     private int Num_People;
@@ -16,8 +16,8 @@ public class Type extends BmobObject {
         return Num_People;
     }
 
-    public String getTypename() {
-        return Typename;
+    public String getTypeName() {
+        return TypeName;
     }
 
     public int getNumber_All() {
@@ -36,8 +36,8 @@ public class Type extends BmobObject {
         Number_Today = number_Today;
     }
 
-    public void setTypename(String typename) {
-        Typename = typename;
+    public void setTypeName(String typeName) {
+        TypeName = typeName;
     }
 
     public void setNum_People(int num_People) {

@@ -56,7 +56,7 @@ public class BanAdapter  extends BaseAdapter {
             viewHolder = new BanAdapter.ViewHolder();
 
             //inflater绑定item的XML布局
-            convertView = inflater.inflate(R.layout.item_note, null);
+            convertView = inflater.inflate(R.layout.item_searchban, null);
             viewHolder.ban_name=(TextView)convertView.findViewById(R.id.item_searchban_banname);
             viewHolder.ban_people=(TextView)convertView.findViewById(R.id.item_searchban_banpeople);
 
@@ -68,18 +68,11 @@ public class BanAdapter  extends BaseAdapter {
 
         //开始设置数据
         type=mList.get(position);
-        viewHolder.ban_name.setText(type.getTypename());
+        viewHolder.ban_name.setText(type.getTypeName()+"");
         viewHolder.ban_people.setText(type.getNum_People()+"人参与");
 
         return convertView;
     }
-
-
-
-
-
-
-
 
 
     class ViewHolder{

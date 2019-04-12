@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.administrator.shudong.R;
 import com.example.administrator.shudong.activity.note.NoteDetailActivity;
+import com.example.administrator.shudong.activity.note.SearchBanActivity;
 import com.example.administrator.shudong.view.fragment.BaseFragment;
 import com.example.administrator.shudong.bean.Note;
 import com.example.administrator.shudong.adapter.NoteAdapter;
@@ -124,9 +125,19 @@ public class FindFragment extends BaseFragment implements View.OnClickListener{
         }
 
 
-
     @Override
     public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()){
+
+            case R.id.iv_search:
+                break;
+            case R.id.iv_post:
+                intent=new Intent(getActivity(),SearchBanActivity.class);
+                startActivity(intent);
+                break;
+
+        }
 
     }
 }

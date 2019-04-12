@@ -1,4 +1,5 @@
 <resources>
+    <string name="icon_banlike">&#xe61e;</string>
     <string name="app_name">树洞</string>
     <string name="login">登录</string>
     <string name="sure">确认</string>

@@ -103,7 +103,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                                 @Override
                                 public void done(User user, BmobException e) {
                                     if (e == null) {
-
                                         //如果是第一次登陆
                                         if (SharedPreferencesTools.getString(LoginActivity.this, StaticData.USER_NAME, "").equals("")) {
                                             //保存用户信息
