@@ -23,6 +23,7 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import io.reactivex.internal.operators.flowable.FlowableTakeLastOne;
 
 
 /**
@@ -56,10 +57,16 @@ public class BanNoteActivity extends BaseActivity implements View.OnClickListene
         lvbannote=(ListView)findViewById(R.id.lv_bannote);
         bannotename=(TextView)findViewById(R.id.tv_bannotename);
         bannotepeople=(TextView)findViewById(R.id.tv_bannotepeople);
+        button_createnote=(FloatingActionButton)findViewById((R.id.bt_bannote_createnote));
+
+
 
         bannotename.setText(type.getTypeName());
         bannotepeople.setText(type.getNum_People()+"");
+
+
         button_createnote.setOnClickListener(this);
+
         noteAdapter=new NoteAdapter(this,mnote);
         lvbannote.setAdapter(noteAdapter);
 
@@ -103,6 +110,12 @@ public class BanNoteActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.bt_bannote_createnote:
+                Intent intent_create=new Intent(BanNoteActivity.this,CreateNoteActivity.class);
+                intent_create.putExtra("type",type);
+                startActivity(intent_create);
+                break;
+        }
     }
 }

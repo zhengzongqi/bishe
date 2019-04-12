@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -63,6 +64,15 @@ public class SearchBanActivity extends BaseActivity implements View.OnClickListe
         lvsearchban=(ListView)findViewById(R.id.lv_searchban);
         banadapter=new BanAdapter(this,mlist);
         lvsearchban.setAdapter(banadapter);
+
+        lvsearchban.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent2=new Intent(SearchBanActivity.this,BanNoteActivity.class);
+                intent2.putExtra("type",mlist.get(position));
+                startActivity(intent2);
+            }
+        });
     }
 
     private void initBanData(){
