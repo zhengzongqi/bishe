@@ -12,7 +12,6 @@ import android.widget.ListView;
 import com.example.administrator.shudong.R;
 import com.example.administrator.shudong.activity.BaseActivity;
 import com.example.administrator.shudong.adapter.BanAdapter;
-import com.example.administrator.shudong.bean.Comment;
 import com.example.administrator.shudong.bean.Type;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class SearchBanActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searchban);
+        setContentView(R.layout.activity_searchban_layout);
         initView();
         initBanData();
     }

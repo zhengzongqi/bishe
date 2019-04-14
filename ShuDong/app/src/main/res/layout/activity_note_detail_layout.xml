@@ -103,6 +103,14 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#aa000000" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -112,6 +120,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh_notedetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             <ListView
                 android:id="@+id/lv_note_detail"
                 android:layout_width="match_parent"
@@ -120,6 +133,8 @@
                 android:paddingTop="20dp">
 
             </ListView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
 
         </LinearLayout>
 

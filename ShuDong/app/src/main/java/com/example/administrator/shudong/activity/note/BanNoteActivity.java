@@ -3,8 +3,8 @@ package com.example.administrator.shudong.activity.note;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
-import android.view.ViewDebug;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,7 +23,6 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
-import io.reactivex.internal.operators.flowable.FlowableTakeLastOne;
 
 
 /**
@@ -41,10 +40,12 @@ public class BanNoteActivity extends BaseActivity implements View.OnClickListene
     private TextView bannotename;
     private TextView bannotepeople;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bannote);
+        setContentView(R.layout.activity_bannote_layout);
         initView();
         initBanNoteData();
     }
@@ -59,6 +60,15 @@ public class BanNoteActivity extends BaseActivity implements View.OnClickListene
         bannotepeople=(TextView)findViewById(R.id.tv_bannotepeople);
         button_createnote=(FloatingActionButton)findViewById((R.id.bt_bannote_createnote));
 
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_bannote);
+        swipeRefreshLayout.setColorSchemeResources(R.color.color_bfbfbf);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initBanNoteData();   //进行刷新操作
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
 
         bannotename.setText(type.getTypeName());

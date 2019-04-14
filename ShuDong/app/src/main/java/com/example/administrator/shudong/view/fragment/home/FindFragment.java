@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.administrator.shudong.R;
 import com.example.administrator.shudong.activity.note.NoteDetailActivity;
 import com.example.administrator.shudong.activity.note.SearchBanActivity;
+import com.example.administrator.shudong.activity.note.SearchNoteActivity;
 import com.example.administrator.shudong.view.fragment.BaseFragment;
 import com.example.administrator.shudong.bean.Note;
 import com.example.administrator.shudong.adapter.NoteAdapter;
@@ -106,7 +107,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener{
             BmobQuery<Note> query = new BmobQuery<Note>();
             query.setLimit(50);
             //按时间降序
-            query.order("-top");
+            query.order("-updatedAt");
             query.findObjects(new FindListener<Note>() {
                 @Override
                 public void done(List<Note> list, BmobException e) {
@@ -131,12 +132,13 @@ public class FindFragment extends BaseFragment implements View.OnClickListener{
         switch (v.getId()){
 
             case R.id.iv_search:
+                intent=new Intent(getActivity(),SearchNoteActivity.class);
+                startActivity(intent);
                 break;
             case R.id.iv_post:
                 intent=new Intent(getActivity(),SearchBanActivity.class);
                 startActivity(intent);
                 break;
-
         }
 
     }

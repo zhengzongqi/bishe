@@ -57,12 +57,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_bannote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <ListView
             android:id="@+id/lv_bannote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
         </ListView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_bannote_createnote"
@@ -71,7 +78,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             app:backgroundTint="@color/color_white"
-            android:src="@drawable/add_comment"/>
+            android:src="@drawable/add_comment" />
 
 
     </FrameLayout>

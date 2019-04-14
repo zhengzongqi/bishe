@@ -60,6 +60,10 @@
         <activity
             android:name=".activity.note.CreateNoteActivity"
             android:label="发布帖子页" />
+        <activity
+            android:name=".activity.note.SearchNoteActivity"
+            android:label="搜索帖子页" />
+
 
         <meta-data
             android:name="com.google.android.actions"

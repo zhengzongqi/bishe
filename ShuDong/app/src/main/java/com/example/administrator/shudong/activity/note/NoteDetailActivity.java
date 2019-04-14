@@ -3,6 +3,7 @@ package com.example.administrator.shudong.activity.note;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,6 @@ import com.example.administrator.shudong.bean.Note;
 import com.example.administrator.shudong.bean.Comment;
 import com.example.administrator.shudong.bean.User;
 import com.example.administrator.shudong.adapter.CommentAdapter;
-import com.example.administrator.shudong.bean.Zan_Note;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,6 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.DeleteBatchListener;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
@@ -50,6 +49,7 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
     private TextView zancount;
     private ImageView replay;
     private TextView replaycount;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private EditText editText;
     private Button button_reply;
@@ -73,7 +73,7 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note_detail);
+        setContentView(R.layout.activity_note_detail_layout);
         initdata();
         initCommentdata();
         initView();
@@ -106,6 +106,16 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
         replaycount.setText(""+note.getNum_Reply());
 
         initZanState();
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_notedetail);
+        swipeRefreshLayout.setColorSchemeResources(R.color.color_bfbfbf);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initCommentdata();   //进行刷新操作
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         zan.setOnClickListener(this);
         button_like.setOnClickListener(this);
@@ -151,8 +161,11 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                 query.findObjects(new FindListener<Comment>() {
                     @Override
                     public void done(List<Comment> list, BmobException e) {
-                        mlist.addAll(list);
-                        commentAdapter.notifyDataSetChanged();
+                        if(e==null){
+                            mlist.clear();
+                            mlist.addAll(list);
+                            commentAdapter.notifyDataSetChanged();
+                        }
                     }
                 });
             }
@@ -374,6 +387,7 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                             }
                         }
                     });
+                    commentAdapter.notifyDataSetChanged();
                 }else{
                     Toast.makeText(this, "亲，输入框不能为空", Toast.LENGTH_SHORT).show();
                 }
@@ -386,7 +400,5 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onResume() {
         super.onResume();
-        initdata();
-        initCommentdata();
     }
 }
