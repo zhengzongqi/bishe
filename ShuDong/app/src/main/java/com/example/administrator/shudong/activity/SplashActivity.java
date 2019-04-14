@@ -11,6 +11,7 @@ import com.example.administrator.shudong.R;
 import com.example.administrator.shudong.activity.note.BanNoteActivity;
 import com.example.administrator.shudong.activity.note.SearchBanActivity;
 import com.example.administrator.shudong.activity.user.LoginActivity;
+import com.example.administrator.shudong.revealbanner.BannerActivity;
 
 /**
  * Created by zzq

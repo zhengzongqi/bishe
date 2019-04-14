@@ -176,7 +176,7 @@
                 android:layout_alignEnd="@+id/tv_sell"
                 android:layout_alignRight="@+id/tv_sell"
                 android:layout_centerVertical="true"
-                android:src="@drawable/note_pressed" />
+                android:src="@drawable/mynote" />
 
             <TextView
                 android:id="@+id/tv_sell"
@@ -219,7 +219,7 @@
                 android:layout_alignEnd="@+id/tv_message"
                 android:layout_alignRight="@+id/tv_message"
                 android:layout_centerVertical="true"
-                android:src="@drawable/mymessage_pressed" />
+                android:src="@drawable/mymessage" />
 
 
         </RelativeLayout>
@@ -257,7 +257,7 @@
                 android:layout_alignEnd="@+id/tv_modify"
                 android:layout_alignRight="@+id/tv_modify"
                 android:layout_centerVertical="true"
-                android:src="@drawable/modify_password_pressed" />
+                android:src="@drawable/modify_password" />
 
 
         </RelativeLayout>
@@ -292,7 +292,7 @@
                 android:layout_alignEnd="@+id/tv_back"
                 android:layout_alignRight="@+id/tv_back"
                 android:layout_centerVertical="true"
-                android:src="@drawable/feedback_pressed" />
+                android:src="@drawable/feedback" />
 
 
         </RelativeLayout>
@@ -329,7 +329,7 @@
                 android:layout_alignEnd="@+id/tv_about"
                 android:layout_alignRight="@+id/tv_about"
                 android:layout_centerVertical="true"
-                android:src="@drawable/about_pressed" />
+                android:src="@drawable/information" />
 
 
         </RelativeLayout>
@@ -364,7 +364,7 @@
                 android:layout_alignEnd="@+id/tv_update"
                 android:layout_alignRight="@+id/tv_update"
                 android:layout_centerVertical="true"
-                android:src="@drawable/update_pressed" />
+                android:src="@drawable/update" />
 
 
         </RelativeLayout>

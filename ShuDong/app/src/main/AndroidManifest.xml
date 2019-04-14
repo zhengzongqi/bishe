@@ -63,6 +63,9 @@
         <activity
             android:name=".activity.note.SearchNoteActivity"
             android:label="搜索帖子页" />
+        <activity
+            android:name=".revealbanner.BannerActivity"
+            android:label="搜索帖子页" />
 
 
         <meta-data

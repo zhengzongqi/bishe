@@ -91,7 +91,7 @@
                 android:id="@+id/item_note_replay"
                 android:layout_width="23dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/replay" />
+                android:src="@drawable/reply" />
 
             <TextView
                 android:paddingLeft="15dp"

@@ -99,7 +99,7 @@ public class CreateNoteActivity extends BaseActivity implements View.OnClickList
 
                 }
                 else {
-                    Toast.makeText(CreateNoteActivity.this,"发布成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateNoteActivity.this,"内容不能为空",Toast.LENGTH_SHORT).show();
                 }
                 finish();
         }

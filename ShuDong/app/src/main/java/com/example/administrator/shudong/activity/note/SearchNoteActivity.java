@@ -1,5 +1,6 @@
 package com.example.administrator.shudong.activity.note;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,6 +8,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -150,6 +152,8 @@ public class SearchNoteActivity extends BaseActivity implements View.OnClickList
                 } else {
                     Toast.makeText(SearchNoteActivity.this, "输入框不能为空", Toast.LENGTH_SHORT).show();
                 }
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
                 break;
         }
     }

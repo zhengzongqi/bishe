@@ -1,11 +1,13 @@
 package com.example.administrator.shudong.activity.note;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -388,6 +390,8 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                         }
                     });
                     commentAdapter.notifyDataSetChanged();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
                 }else{
                     Toast.makeText(this, "亲，输入框不能为空", Toast.LENGTH_SHORT).show();
                 }

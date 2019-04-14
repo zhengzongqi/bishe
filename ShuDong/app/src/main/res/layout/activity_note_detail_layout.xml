@@ -87,7 +87,7 @@
                 android:id="@+id/note_detail_replay"
                 android:layout_width="23dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/replay" />
+                android:src="@drawable/reply" />
 
             <TextView
                 android:paddingLeft="15dp"
@@ -175,7 +175,7 @@
                     android:layout_width="23dp"
                     android:layout_height="23dp"
                     android:layout_gravity="right"
-                    android:background="@drawable/send" />
+                    android:background="@drawable/reply" />
 
                 <TextView
                     android:layout_width="10dp"
