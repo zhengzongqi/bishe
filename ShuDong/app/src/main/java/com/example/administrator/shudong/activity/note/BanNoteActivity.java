@@ -182,6 +182,7 @@ public class BanNoteActivity extends BaseActivity implements View.OnClickListene
         final Type_Like type_like =new Type_Like();
         type_like.setTypeId(type.getObjectId());
         type_like.setUserId(user.getObjectId());
+        type_like.setTypeName(type.getTypeName());
         type_like.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {

@@ -78,7 +78,6 @@ public class SearchBanActivity extends BaseActivity implements View.OnClickListe
         new Thread(new Runnable() {
             @Override
             public void run() {
-
                 BmobQuery<Type> query = new BmobQuery<Type>();
                 query.findObjects(new FindListener<Type>() {
                     @Override

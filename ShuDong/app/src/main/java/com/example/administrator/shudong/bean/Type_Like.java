@@ -11,12 +11,21 @@ import cn.bmob.v3.BmobObject;
 public class Type_Like extends BmobObject {
     private String TypeId;
     private String UserId;
+    private String TypeName;
 
-    public String getTypename() {
+    public String getTypeId() {
         return TypeId;
     }
     public String getUsername(){
         return UserId;
+    }
+
+    public String getTypeName() {
+        return TypeName;
+    }
+
+    public void setTypeName(String typeName) {
+        TypeName = typeName;
     }
 
     public void setTypeId(String typeId) {

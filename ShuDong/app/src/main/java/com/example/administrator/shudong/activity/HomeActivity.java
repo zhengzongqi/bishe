@@ -115,8 +115,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
                 hideFragment(mHomeFragment, fragmentTransaction);
                 hideFragment(mMineFragment, fragmentTransaction);
                 if (mMessageFragment == null) {
-                    mHomeFragment = new FindFragment();
-                    fragmentTransaction.add(R.id.content_layout, mHomeFragment);
+                    mMessageFragment = new BanFragment();
+                    fragmentTransaction.add(R.id.content_layout, mMessageFragment);
                 } else {
                     mCurrent = mMessageFragment;
                     fragmentTransaction.show(mMessageFragment);
