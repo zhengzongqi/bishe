@@ -9,6 +9,12 @@ import android.view.ViewGroup;
 import com.example.administrator.shudong.R;
 import com.example.administrator.shudong.view.fragment.BaseFragment;
 
+
+/**
+ * Created by zzq
+ * on         2019/4/6.
+ * function:  版块fragment
+ */
 public class BanFragment extends BaseFragment {
     @Nullable
     @Override

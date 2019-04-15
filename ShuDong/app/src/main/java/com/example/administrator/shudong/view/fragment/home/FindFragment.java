@@ -87,8 +87,8 @@ public class FindFragment extends BaseFragment implements View.OnClickListener{
         //setFullScreen();
         loopLayout = view.findViewById(R.id.loop_layout);
         bannerBgContainer = view.findViewById(R.id.banner_bg_container);
-        loopLayout.setLoop_ms(2000);//轮播的速度(毫秒)
-        loopLayout.setLoop_duration(400);//滑动的速率(毫秒)
+        loopLayout.setLoop_ms(3000);//轮播的速度(毫秒)
+        loopLayout.setLoop_duration(500);//滑动的速率(毫秒)
         loopLayout.setScaleAnimation(true);// 设置是否需要动画
         loopLayout.setLoop_style(LoopStyle.Empty);//轮播的样式-默认empty
         loopLayout.setIndicatorLocation(IndicatorLocation.Center);//指示器位置-中Center

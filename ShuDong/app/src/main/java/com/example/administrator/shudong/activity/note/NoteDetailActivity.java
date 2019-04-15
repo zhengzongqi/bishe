@@ -252,13 +252,9 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                         note.update(note.getObjectId(), new UpdateListener() {
                             @Override
                             public void done(BmobException e) {
-
                                 if (e == null) {
-
                                     iszan = true;
                                     tag = true;
-
-
                                 } else {
                                     Toast.makeText(NoteDetailActivity.this, "登录失败，请检查用户名或密码错误", Toast.LENGTH_SHORT).show();
                                 }
@@ -308,10 +304,7 @@ public class NoteDetailActivity extends BaseActivity implements View.OnClickList
                                         }
                                     }
                                 });
-
-
                             }else{
-
                             }
                         }
                     });

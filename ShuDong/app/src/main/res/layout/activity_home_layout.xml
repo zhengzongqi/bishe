@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="65sp"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
+        android:background="@mipmap/background"
         android:orientation="horizontal"
         android:paddingBottom="4dp"
         android:paddingTop="4dp">
