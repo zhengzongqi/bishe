@@ -34,10 +34,10 @@ import cn.bmob.v3.listener.FindListener;
  */
 public class BanFragment extends BaseFragment implements View.OnClickListener{
 
-    ListView listView;
-    BanFragmentAdapter banFragmentAdapter;
-    List<Type_Like> typeList=new ArrayList<>();
-    Type type;
+    private ListView listView;
+    private BanFragmentAdapter banFragmentAdapter;
+    private List<Type_Like> typeList=new ArrayList<>();
+    private Type type;
 
     @Nullable
     @Override
@@ -77,9 +77,11 @@ public class BanFragment extends BaseFragment implements View.OnClickListener{
     }
 
     private void initData(){
-                BmobQuery<Type_Like> query = new BmobQuery<Type_Like>();
-                query.order("-updatedAt");
-                query.findObjects(new FindListener<Type_Like>() {
+        User user=BmobUser.getCurrentUser(User.class);
+        BmobQuery<Type_Like> query = new BmobQuery<Type_Like>();
+        query.order("-updatedAt");
+        query.addWhereEqualTo("UserId",user.getObjectId());
+        query.findObjects(new FindListener<Type_Like>() {
                     @Override
                     public void done(List<Type_Like> list, BmobException e) {
                         if(e==null){

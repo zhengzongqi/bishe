@@ -16,11 +16,12 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/man" />
+                android:src="@drawable/profile"
+                app:riv_oval="true"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,10 +117,18 @@
                 android:id="@+id/tv_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_black"
-                android:textSize="20sp" />
+                android:textColor="@color/color_cdcdcd"
+                android:textSize="1sp" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#aa000000" />
 
         <View
             android:layout_width="match_parent"
@@ -129,34 +138,6 @@
             android:alpha="0.5"
             android:textColor="@color/color_black" />
 
-
-        <!--简介-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="个性签名："
-                android:textColor="@color/color_black"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/tv_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:textColor="@color/color_black"
-                android:textSize="20sp" />
-
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
