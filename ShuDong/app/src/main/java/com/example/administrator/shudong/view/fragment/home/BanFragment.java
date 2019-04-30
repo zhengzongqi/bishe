@@ -48,6 +48,12 @@ public class BanFragment extends BaseFragment implements View.OnClickListener{
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        initData();
+    }
+
     private void initView(View view){
 
         listView=(ListView) view.findViewById(R.id.lv_ban);

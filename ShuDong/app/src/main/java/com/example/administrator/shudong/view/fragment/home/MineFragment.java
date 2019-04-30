@@ -10,6 +10,8 @@ import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.shudong.activity.user.Mine_Fagment.AboutActivity;
+import com.example.administrator.shudong.activity.user.Mine_Fagment.EditUserActivity;
 import com.example.administrator.shudong.activity.user.Mine_Fagment.MyMessageActivity;
 import com.example.administrator.shudong.activity.user.Mine_Fagment.MyNoteActivity;
 import com.example.administrator.shudong.view.fragment.BaseFragment;
@@ -100,7 +102,22 @@ public class MineFragment extends BaseFragment implements View.OnClickListener{
             case R.id.tv_message:
                 startActivity(new Intent(getActivity(), MyMessageActivity.class));
                 break;
-
+            case R.id.tv_about:
+                startActivity(new Intent(getActivity(), AboutActivity.class));
+                break;
+            case R.id.tv_modify:
+                break;
+            case R.id.edit_user:
+                startActivity(new Intent(getActivity(), EditUserActivity.class));
+                break;
+            case R.id.tv_back:
+                break;
+            case R.id.tv_update:
+                break;
+            case R.id.tv_sign_out:
+                break;
+            case R.id.tv_exit_system:
+                break;
         }
     }
 }

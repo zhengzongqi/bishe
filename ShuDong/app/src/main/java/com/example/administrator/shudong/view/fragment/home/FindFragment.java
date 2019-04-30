@@ -99,8 +99,8 @@ public class FindFragment extends BaseFragment implements View.OnClickListener{
         bannerInfos.add(new BannerInfo(R.mipmap.banner_01, "1"));
         bannerInfos.add(new BannerInfo(R.mipmap.banner_02, "2"));
         bannerInfos.add(new BannerInfo(R.mipmap.banner_03, "3"));
-        bannerInfos.add(new BannerInfo(R.mipmap.banner_04, "4"));
-        bannerInfos.add(new BannerInfo(R.mipmap.banner_05, "5"));
+        //bannerInfos.add(new BannerInfo(R.mipmap.banner_04, "4"));
+        //bannerInfos.add(new BannerInfo(R.mipmap.banner_05, "5"));
         bgList.add(R.mipmap.banner_bg1);
         bgList.add(R.mipmap.banner_bg2);
         // 设置监听
